@@ -1,0 +1,52 @@
+fun main()
+{
+    print("Введите неотрицательное целое число: ")
+    // val num = readLine()?.toIntOrNull()
+    val num = 910
+    if (num == null)
+    {
+        println("Введено некорректное значение.")
+        return
+    }
+    if (num == 0)
+    {
+        println("Результат не может быть вычислен для нулевого значения.")
+        return
+    }
+    if (num < 0)
+    {
+        println("Результат не может быть вычислен для отрицательного значения.")
+        return
+    }
+    val res = MinDigitNum(
+        num,
+        { num % 3 == 0}, // Изменено на отрицание, чтобы получить цифры, некратные трем
+        { num1, num2 -> num1 >= num2 }
+                         )
+    if (res % 3 == 0) {
+        println("Ошибка: Результат кратен 3: $res")
+    } else {
+        if (res == 0) {
+            println("Результат равен 0: в числе нет цифр, некратных трём.")
+        } else {
+            println("Минимальная цифра, некратная трем: $res")
+        }
+    }
+}
+fun MinDigitNum(
+        num: Int,
+        IsMultipleOfThree: (Int) -> Boolean = { num % 3 == 0 },
+        IsMore: (Int, Int) -> Boolean = { num1, num2 -> num1 >= num2 }
+): Int
+{
+var minDigit = 9
+for (digit in num.toString()) {
+    val digitInt = digit.digitToInt()
+    if (IsMultipleOfThree(digitInt)) //0 % 3 = 0
+        continue
+    if (IsMore(digitInt, minDigit))
+        continue
+    minDigit = digitInt
+}
+return minDigit
+}
