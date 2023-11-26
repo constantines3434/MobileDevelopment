@@ -79,7 +79,6 @@ class MainActivity : AppCompatActivity() {
 
         resultTextView.text = getString(zodiacSignResource)
     }
-
     private fun determineZodiacSign(day: Int, month: Int): String {
         return when {
             (month == 3 && day >= 21) || (month == 4 && day <= 19) -> getString(R.string.aries)

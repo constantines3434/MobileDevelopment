@@ -5,17 +5,17 @@ import java.util.*
 fun main(args: Array<String>) {
     println("Hello World!")
 
-    var data = DataBase()
+    var operation = Operation()
 
     // Пример добавления операций
-    data.addOperation(Operation( Date(), "доход", 1000.0, "Продажа товаров", "Клиент1"))
-    data.addOperation(Operation( Date(), "расход", 500.0, "Покупка сырья", "Поставщик1"))
+    operation.addOperation(DataBase( Date(), "доход", 1000.0, "Продажа товаров", "Клиент1"))
+    operation.addOperation(DataBase( Date(), "расход", 500.0, "Покупка сырья", "Поставщик1"))
 
     // Поиск операций по описанию
     val search = "продажа товаров"
-   // val searchResults = data.searchOperationsByDescription(search)
-    data.printAllOperations()
+   // val searchResults = operation.searchOperationsByDescription(search)
+    operation.printAllOperations()
 
-    data.deleteOperation(1)
-    data.printAllOperations()
+    operation.deleteOperation(1)
+    operation.printAllOperations()
 }
