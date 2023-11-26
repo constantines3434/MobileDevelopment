@@ -1,4 +1,0 @@
-interface IAdd
-{
-    fun Add()
-}
