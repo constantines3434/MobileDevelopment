@@ -1,5 +1,5 @@
 package consoleUI
-import Operation
+import Operations.Operation
 
 // Класс для ввода данных новой операции
 class EnterOperationData(
